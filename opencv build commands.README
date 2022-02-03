@@ -1,0 +1,54 @@
+"C:\Program Files (x86)\IntelSWTools\compilers_and_libraries\windows\tbb\bin\tbbvars.bat" intel64
+set "openCvSource=C:\openCVCuda"
+set "openCVExtraModules=C:\openCVCuda\contrib\modules" 
+set "openCvBuild=%openCvSource%\build" 
+set "buildType= Debug" 
+set "pathToAnaconda=C:/ProgramData/Anaconda3/" 
+set "pyVer=37"
+
+
+set "generator="Visual Studio 16 2019" -A x64
+ "Visual Studio 16 2019" 
+
+
+"C:\Program Files\CMake\bin\cmake.exe" -B"%openCvBuild%/" -H"%openCvSource%/" -G -G "Visual Studio 16 2019" -A x64 -DCMAKE_BUILD_TYPE= Release -DOPENCV_EXTRA_MODULES_PATH="%openCVExtraModules%/"  -DINSTALL_TESTS=ON -DINSTALL_C_EXAMPLES=ON -DBUILD_EXAMPLES=ON  -DBUILD_opencv_world=ON  -DWITH_CUDA=ON -DCUDA_TOOLKIT_ROOT_DIR="C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v10.2" -DCUDA_FAST_MATH=ON -DWITH_CUBLAS=ON -DCUDA_ARCH_BIN=10.2 -DCUDA_ARCH_PTX=10.2 -DWITH_NVCUVID=ON -DWITH_OPENGL=ON  -DINSTALL_TESTS=ON -DINSTALL_C_EXAMPLES=ON -DBUILD_EXAMPLES=ON-DWITH_MFX=ON -DOPENCV_ENABLE_NONFREE=ON -DBUILD_opencv_rgbd=OFF -DMKL_USE_MULTITHREAD=ON -DMKL_WITH_TBB=ON -DWITH_TBB=ON -DBUILD_opencv_python3=ON -DPYTHON3_INCLUDE_DIR=%pathToAnaconda%/include -DPYTHON3_LIBRARY=%pathToAnaconda%/libs/python%pyVer%.lib -DPYTHON3_EXECUTABLE=%pathToAnaconda%/python.exe -DPYTHON3_NUMPY_INCLUDE_DIRS=%pathToAnaconda%/lib/site-packages/numpy/core/include -DPYTHON3_PACKAGES_PATH=%pathToAnaconda%/Lib/site-packages/ -DOPENCV_SKIP_PYTHON_LOADER=ON 
+
+
+cmake -B"%openCvBuild%/" -H"%openCvSource%/" -G "Visual Studio 16 2019" -A x64 -DCMAKE_BUILD_TYPE=Debug -DOPENCV_EXTRA_MODULES_PATH="%openCVExtraModules%/"  -DINSTALL_TESTS=ON -DINSTALL_C_EXAMPLES=ON -DBUILD_EXAMPLES=ON  -DBUILD_opencv_world=ON  -DWITH_CUDA=ON -DCUDA_TOOLKIT_ROOT_DIR="C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v10.2" -DCUDA_FAST_MATH=ON -DWITH_CUBLAS=ON -DCUDA_ARCH_BIN=5.3,6.0,6.1,7.0,7.5 -DCUDA_ARCH_PTX=7.5 -DWITH_NVCUVID=ON -DWITH_OPENGL=ON  -DINSTALL_TESTS=ON -DINSTALL_C_EXAMPLES=ON -DBUILD_EXAMPLES=ON-DWITH_MFX=ON -DOPENCV_ENABLE_NONFREE=ON -DBUILD_opencv_rgbd=OFF -DMKL_USE_MULTITHREAD=ON -DMKL_WITH_TBB=ON -DWITH_TBB=ON -DBUILD_opencv_python3=ON -DPYTHON3_INCLUDE_DIR=%pathToAnaconda%/include -DPYTHON3_LIBRARY=%pathToAnaconda%/libs/python%pyVer%.lib -DPYTHON3_EXECUTABLE=%pathToAnaconda%/python.exe -DPYTHON3_NUMPY_INCLUDE_DIRS=%pathToAnaconda%/lib/site-packages/numpy/core/include -DPYTHON3_PACKAGES_PATH=%pathToAnaconda%/Lib/site-packages/ -DOPENCV_SKIP_PYTHON_LOADER=ON -DWITH_GSTREAMER=ON 
+
+
+cmake.exe --build %openCvBuild% --target INSTALL --config Release
+
+
+
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.2\include
+C:\openCVCuda\build\install\include
+
+
+
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.2\lib\x64
+C:\openCVCuda\build\install\x64\vc16\lib
+
+opencv_img_hash420d.lib
+opencv_world420d.lib
+
+uEye_api_64.lib
+ueye_tools_64.lib
+windowscodecs.lib
+
+
+uEye_api.lib
+
+opencv_videoio_gstreamer420_64.dll
+
+
+$(Qt_INCLUDEPATH_);C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.2\include;C:\openCVCuda\build\install\include;%(AdditionalIncludeDirectories)
+
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.2\include;C:\openCVCuda\build\install\include;..\..\..\..\QT\5.14.1\MSVC2017_64\include;..\..\..\..\QT\5.14.1\MSVC2017_64\include\QtMultimedia;..\..\..\..\QT\5.14.1\MSVC2017_64\include\QtWidgets;..\..\..\..\QT\5.14.1\MSVC2017_64\include\QtGui;..\..\..\..\QT\5.14.1\MSVC2017_64\include\QtANGLE;..\..\..\..\QT\5.14.1\MSVC2017_64\include\QtNetwork;..\..\..\..\QT\5.14.1\MSVC2017_64\include\QtCore;%(AdditionalIncludeDirectories)
+
+
+$(Qt_LIBS_);C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.2\lib\x64;C:\openCVCuda\build\install\x64\vc16\lib;%(AdditionalLibraryDirectories)
+
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.2\lib\x64;C:\openCVCuda\build\install\x64\vc16\lib;C:\openssl\lib;C:\Utils\my_sql\mysql-5.7.25-winx64\lib;C:\Utils\postgresql\pgsql\lib;%(AdditionalLibraryDirectories)
+
+$(Qt_LIBS_);nisyscfg.lib;NIDAQmx.lib;opencv_img_hash420d.lib;opencv_world420d.lib;uEye_api_64.lib;ueye_tools_64.lib;windowscodecs.lib;%(AdditionalDependencies)
